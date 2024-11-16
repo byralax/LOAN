@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review & Submit - Bank Loan Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Bank Loan Management System</h1>
+  </header>
+  <div class="container">
+    <h2>Review Your Loan Application</h2>
+    <div id="review-details">
+      <!-- The details to be reviewed will be dynamically inserted here -->
+    </div>
+    <button onclick="submitApplication()">Submit Application</button>
+  </div>
+
+  <script>
+    // JavaScript to dynamically insert the review details
+    document.addEventListener('DOMContentLoaded', function() {
+      const loanType = localStorage.getItem('loan-type');
+      const loanAmount = localStorage.getItem('loan-amount');
+      const income = localStorage.getItem('income');
+      const tenure = localStorage.getItem('tenure');
+      document.getElementById('review-details').innerHTML = `
+        <p><strong>Loan Type:</strong> ${loanType}</p>
+        <p><strong>Loan Amount:</strong> $${loanAmount}</p>
+        <p><strong>Monthly Income:</strong> $${income}</p>
+        <p><strong>Loan Tenure:</strong> ${tenure} months</p>
+      `;
+    });
+
+    function submitApplication() {
+      // Logic to submit the application
+      window.location.href = 'confirmation.html';
+    }
+  </script>
+</body>
+</html>
